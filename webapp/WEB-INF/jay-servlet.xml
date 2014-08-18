@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+	<!-- net.jay.web에 있는 컨트롤러 부분들만 읽어서 url과 컨트롤러를 매핑 -->
+	<context:component-scan base-package="net.jay.web"></context:component-scan>
+	<!-- url과 컨트롤러의 매핑을 어노테이션으로 할 수 있음 --> 
+	<mvc:annotation-driven/>
+	<mvc:resources location="/images/" mapping="/images/**"/> 
+	<mvc:resources location="/stylesheets/" mapping="/stylesheets/**"/> 
+	<mvc:resources location="/javascripts/" mapping="/javascripts/**"/> 
+	
+	<!-- 프로젝트 내부에 리소스들 접근할때 어케해야할지 표기. 뷰 이름 결정할때 프리픽스와 서픽스 자동붙음
+	물리적 jsp파일에 연결하면 에러뜰것이다. -->
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" 
+	p:prefix="/WEB-INF/jsp/"
+        p:suffix=".jsp" />
+	
+</beans>
