@@ -16,7 +16,7 @@
 		<input type="submit" value="submit" />
 	</form>
 
-	<form action="/users" method="get">
+	<form action="/users/form" method="get">
 		<button>가입하러갑시다</button>
 	</form>
 

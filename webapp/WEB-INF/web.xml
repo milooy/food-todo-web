@@ -4,6 +4,17 @@
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
 	version="3.0">
 	<display-name>webtodo</display-name>
+	
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+			classpath:/applicationContext.xml
+		</param-value>
+	</context-param>
 
 	<servlet>
 		<servlet-name>jay</servlet-name>
@@ -16,7 +27,7 @@
 	</servlet-mapping>
 	
 	<!-- H2 Database Console for managing the app's database -->
-    <!-- <servlet>
+    <servlet>
         <servlet-name>H2Console</servlet-name>
         <servlet-class>org.h2.server.web.WebServlet</servlet-class>
         <init-param>
@@ -29,7 +40,7 @@
     <servlet-mapping>
         <servlet-name>H2Console</servlet-name>
         <url-pattern>/admin/h2/*</url-pattern>
-    </servlet-mapping> -->
+    </servlet-mapping>
 	
 	
 
